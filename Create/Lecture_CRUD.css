@@ -13,8 +13,7 @@ h2,h3{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin: 10px 10px;
 }
 input{
     padding: 0.3rem 1rem;
