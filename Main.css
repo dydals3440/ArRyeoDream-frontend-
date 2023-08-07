@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+/* Header Section */
+
+.headerContainer {
+  margin-top: 4rem;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.search {
+  border: 1px solid #51d394;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0.8rem;
+}
+
+.search input {
+  font-size: 1.25rem;
+  border: none;
+  width: 80%;
+  color: #b0b0b0;
+}
+
+.searchIcon {
+  cursor: pointer;
+}
+
+.searchIcon:hover {
+  transform: scale(1.5);
+}
+
+.loginContainer {
+  margin-left: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: center;
+  white-space: nowrap;
+}
+
+.login {
+  border: none;
+  background-color: #51d394;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 10rem;
+}
+
+.login:hover {
+  transform: scale(1.1);
+}

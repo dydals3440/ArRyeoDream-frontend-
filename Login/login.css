@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Main Section */
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 10rem;
+}
+
+.logo {
+  width: 18.75rem;
+  height: 4.171rem;
+  margin-bottom: 5rem;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.kakaoLoginBtn {
+  margin-top: 2rem;
+  cursor: pointer;
+  display: flex;
+  width: 22.1875rem;
+  height: 3.0625rem;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  border-radius: 6.25rem;
+  background: #fddc3f;
+}
+
+.kakaoLoginBtn:hover {
+  transform: scale(1.2);
+}
