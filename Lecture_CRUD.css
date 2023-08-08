@@ -1,6 +1,6 @@
 
 .layout_create,
-.layout_exp{
+.layout_under{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,12 +9,11 @@
 h2,h3{
     color: #000;
     font-family: Inter;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin: 10px 10px;
 }
 input{
     padding: 0.3rem 1rem;
@@ -24,6 +23,7 @@ input{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    margin-top: 3rem;
 }
 .lecture_name{
     display: flex;
@@ -58,6 +58,7 @@ input{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 3rem;
 }
 .intro_lecture{
     display: flex;
@@ -83,12 +84,14 @@ input{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    margin-top: 3rem;
 }
 
 /* 사진등록 박스 */
 .lecture_img{
     display: flex;
     flex-direction: column;
+    margin: unset;
     margin-right: 2rem;
 }
 .box1{
@@ -132,7 +135,13 @@ input{
     display: flex;
     flex-wrap: nowrap;
 }
+.able_week{
+    display: flex;
+    flex-direction: column;
+    margin: unset;
+    margin-right: 1rem;
 
+}
 .label_week{
     display: flex;
     justify-content: center;
@@ -183,10 +192,60 @@ input{
 }
 
 .enroll{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 70rem;
+    height: 5rem;
+}
+.h3_review{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+.submit_button_review{
+    position: absolute;
+    right: 1rem;
+    width: 13.5625rem;
+    height: 3.00094rem;
+    flex-shrink: 0;
+    border-style: none;
+    border-radius: 0.9375rem;
+    background: #51D394;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.review_list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem 1rem;
+}
+.reviews{
+    position: relative;
+    width: 63.0625rem;
+    height: 9rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    background: #F8F8F8;
+}
+
+.review_content{
+    color: #000;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0 1rem;
 }
 
 /* 강좌신청 팝업 */
@@ -271,6 +330,7 @@ input{
     height: 4.1875rem;
     flex-shrink: 0;
     border-radius: 0.9375rem;
+    border-style: none;
     background: #51D394;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #FFF;
@@ -279,6 +339,7 @@ input{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin: 3rem;
 }
 
 
@@ -289,17 +350,47 @@ input{
 
 /* 멘토 레벨 게이지바 */
 .mentor_exp{
+    margin-top: 4rem;
+}
+.mentor_exp_name{
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: row;
+}
+.progress-bar{
+    width: 64.0625rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    border-radius: 1.25rem;
+    background: #F8F8F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    text-align: start;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.5rem;
 }
 
 .exp_h3{
     display: flex;
+    flex-direction: row;
     align-items: flex-end;
+    color: #000;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 
 /* 후기 등록 */
+.show_reviews{
+    margin-top: 3rem;
+}
 .review_head{
     display: flex;
     flex-wrap: nowrap;

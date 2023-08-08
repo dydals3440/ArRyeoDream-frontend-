@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../static/css/Lecture_CRUD.css">
+    <link rel="stylesheet" href="../Lecture_CRUD.css">
     
     <title>강좌 신청 - 상세</title>
 </head>
@@ -56,23 +56,25 @@
     <div class="create_lecture_button"> <!-- 페이지 하단 강좌 신청하기버튼 -->
         <button type="submit" class="submit_button">강좌 신청하기</button>
     </div>
-    <div class="layout_exp">
+    <div class="layout_under">
         <div class="mentor_exp">  <!-- 멘토 레벨 게이지 바 -->
-            <h2>@@@</h2> <h3 class="exp_h3">멘토의 레벨</h3>
+            <div class="mentor_exp_name">
+                <h2>@@@</h2> <h3 class="exp_h3">멘토의 레벨</h3>
+            </div>
             <!-- exp게이지 바 -->
-            <div class="progress mx-auto mt-5">
+            <div class="progress">
                 <div
                 class="progress-bar" 
                 role="progressbar"
                 aria-valuenow="0"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                ></div>
+                >LV.17</div>
             </div>
         </div>
         <div class="show_reviews">  <!-- 리뷰란 / 작성은 다른곳에서 후기열람만 가능 -->
             <div class="enroll">
-                <h3>후기</h3>
+                <h3 class="h3_review">후기</h3>
                 <input type="submit" class="submit_button_review" value="후기 등록하기">
             </div>
             <hr> <!-- 밑줄 -->
