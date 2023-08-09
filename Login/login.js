@@ -4,7 +4,7 @@ const kakaoLoginBtn = document.querySelector('.kakaoLoginBtn');
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
-  window.location.assign('http://172.30.1.76:5500/Main.html');
+  window.location.assign('http://127.0.0.1:5500/Main.html');
 });
 
 //  KAKAO LOGIN
@@ -32,7 +32,7 @@ function kakaoLogin() {
           console.log(kakao_account);
         },
       });
-      //   window.location.href = 'http://172.30.40.223:5500/MyPage/MyPage.html'; //리다이렉트 되는 코드
+      //   window.location.href = 'http://127.0.0.1:5500/MyPage/MyPage.html'; //리다이렉트 되는 코드
     },
     fail: function (error) {
       console.log(`${error} 로그인을 시도하는 과정 중에 에러가 발생했습니다.`);

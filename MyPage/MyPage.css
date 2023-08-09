@@ -79,3 +79,109 @@
   width: 80%;
   margin-top: 1rem;
 }
+
+.myPageContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.myPageContainer p {
+  margin-left: 10rem;
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: transparent;
+  margin-right: 10rem;
+  cursor: pointer;
+}
+
+.logout:hover {
+  transform: scale(1.1);
+}
+
+.logout p {
+  margin-left: 0.3rem;
+}
+
+.logout img {
+  margin-left: 0.5rem;
+}
+
+/* Class */
+.classWrapper {
+  width: 80%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* 강좌 하나 */
+.classInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.classImg {
+  width: 225px;
+  height: 225px;
+  margin: 0;
+}
+
+.classDescription {
+  margin-top: 1rem;
+  margin-left: 0.3rem;
+}
+
+.classDescription h1 {
+  font-size: 1.3rem;
+}
+
+.classSubDescription {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 1rem;
+}
+
+.classRegion {
+  border: 1px solid #51d394;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.classRegion,
+.classMentorName {
+  white-space: nowrap;
+}
+
+/* 회원 탈퇴 버튼 */
+.memberQuit {
+  text-align: center;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.memberQuit button {
+  border: 1px solid #d9d9d9;
+  border-radius: 1rem;
+  background-color: white;
+  width: 100%;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.memberQuit button:hover {
+  transform: scale(1.1);
+}
