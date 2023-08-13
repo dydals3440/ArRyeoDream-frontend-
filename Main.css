@@ -62,3 +62,51 @@
 .login:hover {
   transform: scale(1.1);
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .header {
+    width: 80%;
+  }
+
+  .logo {
+    width: 80px;
+    height: 50px;
+  }
+
+  .loginContainer {
+    display: none;
+  }
+
+  .search input {
+    font-size: 0.65rem;
+    border: none;
+    width: 80%;
+    color: #b0b0b0;
+  }
+
+  .myPageContainer {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .myPageContainer p {
+    margin: 0;
+  }
+
+  .myPageContainer .logout {
+    margin: 0;
+  }
+
+  .classWrapper {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1f;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
