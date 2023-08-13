@@ -82,6 +82,7 @@
 
 .myPageContainer {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   margin: 0.5rem 0;
 }
@@ -101,7 +102,8 @@
   cursor: pointer;
 }
 
-.logout:hover {
+.logout:hover,
+.loginStatus:hover {
   transform: scale(1.1);
 }
 
@@ -115,11 +117,12 @@
 
 /* Class */
 .classWrapper {
-  width: 80%;
+  width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 18.75rem 18.75rem 18.75rem;
   gap: 1.5rem;
+  justify-content: center;
 }
 
 /* 강좌 하나 */
@@ -133,8 +136,8 @@
 }
 
 .classImg {
-  width: 225px;
-  height: 225px;
+  width: 14.2rem;
+  height: 14.2rem;
   margin: 0;
 }
 
@@ -184,4 +187,116 @@
 
 .memberQuit button:hover {
   transform: scale(1.1);
+}
+
+/* 수정 페이지 */
+
+.attendeeWrapper {
+  width: 100%;
+}
+
+.attendeeContainer {
+  width: 80%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.attendeeBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 2rem;
+  padding: 2rem 5rem;
+  margin: 0;
+}
+
+.attendeeBox p {
+  padding: 0.2rem;
+}
+
+/* 수정 페이지 */
+.modifyWrapper__btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background-color: #51d394;
+  color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  width: 50%;
+}
+
+.modifyWrapper__btn:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .header {
+    width: 80%;
+  }
+
+  .logo {
+    width: 80px;
+    height: 50px;
+  }
+
+  .loginContainer {
+    display: none;
+  }
+
+  .search input {
+    font-size: 0.65rem;
+    border: none;
+    width: 80%;
+    color: #b0b0b0;
+  }
+
+  .myPageContainer {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .myPageContainer p {
+    margin: 0;
+  }
+
+  .myPageContainer .logout {
+    margin: 0;
+  }
+
+  .classWrapper {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1f;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .attendeeContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+  }
+
+  .attendeeBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  }
 }

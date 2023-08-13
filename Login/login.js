@@ -9,7 +9,7 @@ logo.addEventListener('click', () => {
 
 //  KAKAO LOGIN
 const REST_API_KEY = '	91c58cdda4c980cc377e033eaada7996';
-const REDIRECT_URI = 'http://127.0.0.1:5500/Login/Redirect/redirect.html';
+const REDIRECT_URI = 'http://127.0.0.1:5500/Login/Redirect/redirect.htm l';
 
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
 
