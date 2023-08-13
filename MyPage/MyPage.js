@@ -12,7 +12,7 @@ backIcon.addEventListener('click', () => {
 // 나의 강좌 MockData 연결
 axios({
   method: 'get',
-  url: '../Mock/MyPage/MyLecture',
+  url: '../Mock/MyPage/MyLecture.json',
 }).then((response) => {
   const classWrapper = document.querySelector('.classWrapper');
   const classData = response.data.content;
@@ -54,6 +54,21 @@ axios({
     classElement.appendChild(imgElement);
     classElement.appendChild(descriptionElement);
 
+    classElement.addEventListener('click', () => {
+      showClassDetails(classInfo.id);
+    });
+
     classWrapper.appendChild(classElement);
   });
 });
+
+// 세부 페이지 내용 보여주기
+function showClassDetails(classId) {
+  axios({
+    method: 'get',
+    url: `../Mock/MyPage/DetailLecture.json`,
+  }).then((response) => {
+    const classDetails = response.data;
+    console.log(classDetails);
+  });
+}

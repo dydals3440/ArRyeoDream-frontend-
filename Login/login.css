@@ -42,3 +42,14 @@
 .kakaoLoginBtn:hover {
   transform: scale(1.2);
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .loginContainer h1 {
+    white-space: nowrap;
+  }
+
+  .loginContainer p {
+    white-space: nowrap;
+  }
+}
