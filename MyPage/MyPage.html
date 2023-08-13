@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="../MyPage/MyPage.css" />
     <script src="../MyPage/MyPage.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -36,6 +37,33 @@
         <div></div>
       </div>
       <div class="divider"></div>
+      <!-- 나의 개설 강좌, 로그아웃 헤더 -->
+      <div class="myPageContainer">
+        <p>나의 개설 강좌</p>
+        <button class="logout">
+          <p>로그아웃</p>
+          <img src="../img/Logout.png" alt="로그아웃 이미지" />
+        </button>
+      </div>
+      <!-- 강좌 나열 -->
+      <section>
+        <div class="classWrapper">
+          <!-- One Lecture (for Design) -->
+          <div class="classInfo">
+            <img class="classImg" src="../img/gray_box.png" alt="회색 이미지" />
+            <div class="classDescription">
+              <h1 class="classTitle">키오스크로 주문하기</h1>
+              <div class="classSubDescription">
+                <p class="classRegion">가능 지역</p>
+                <p class="classMentorName">김가은 멘토</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="memberQuit">
+          <button>회원 탈퇴하기</button>
+        </div>
+      </section>
     </main>
   </body>
 </html>

@@ -4,50 +4,18 @@ const kakaoLoginBtn = document.querySelector('.kakaoLoginBtn');
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
-  window.location.assign('http://172.30.1.76:5500/Main.html');
+  window.location.assign('http://127.0.0.1:5500/Main.html');
 });
 
 //  KAKAO LOGIN
-kakaoLoginBtn.addEventListener('click', () => {
+const REST_API_KEY = '	91c58cdda4c980cc377e033eaada7996';
+const REDIRECT_URI = 'http://127.0.0.1:5500/Login/Redirect/redirect.html';
+
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+
+kakaoLoginBtn.addEventListener('click', (e) => {
   console.log('카카오버튼 클릭');
-  kakaoLogin();
+  window.location.assign(KAKAO_AUTH_URL);
 });
 
 window.Kakao.init('2bf73d0da371aadf90102e2d764fb07c');
-
-// 추후에 Access token을 백엔드에게 전달해주어야함
-function kakaoLogin() {
-  window.Kakao.Auth.login({
-    scope:
-      'profile_nickname, 	profile_image, account_email, gender, age_range, friends, story_permalink',
-    success: function (response) {
-      // 토큰 정보
-      console.log(response);
-      window.localStorage.setItem('token', response.access_token);
-      window.Kakao.API.request({
-        url: '/v2/user/me',
-        success: (res) => {
-          // 카카오 유저 정보
-          const kakao_account = res.kakao_account;
-          console.log(kakao_account);
-        },
-      });
-      //   window.location.href = 'http://172.30.40.223:5500/MyPage/MyPage.html'; //리다이렉트 되는 코드
-    },
-    fail: function (error) {
-      console.log(`${error} 로그인을 시도하는 과정 중에 에러가 발생했습니다.`);
-    },
-  });
-}
-
-// KAKAO LOGOUT
-function kakaoLogout() {
-  if (!Kakao.Auth.getAccessToken()) {
-    console.log('Not logged in.');
-    return;
-  }
-  Kakao.Auth.logout(function (response) {
-    alert(response + ' logout');
-    window.location.href = '/';
-  });
-}
