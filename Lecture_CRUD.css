@@ -1,4 +1,19 @@
 .layout_create,
+.layout_under{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2,h3{
+    color: #000;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 10px 10px;
+}
 .layout_exp {
   position: relative;
   display: flex;
@@ -189,6 +204,63 @@ input {
   flex-shrink: 0;
 }
 
+
+.enroll{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70rem;
+    height: 5rem;
+}
+.h3_review{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+.submit_button_review{
+    position: absolute;
+    right: 1rem;
+    width: 13.5625rem;
+    height: 3.00094rem;
+    flex-shrink: 0;
+    border-style: none;
+    border-radius: 0.9375rem;
+    background: #51D394;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.review_list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem 1rem;
+}
+.reviews{
+    position: relative;
+    width: 63.0625rem;
+    height: 9rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    background: #F8F8F8;
+}
+
+.review_content{
+    color: #000;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0 1rem;
+}
 .enroll {
   display: flex;
   flex-direction: row;
@@ -211,6 +283,20 @@ input {
   border-radius: 0.9375rem;
   background: #f8f8f8;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.main_popup{
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}
+.popup{
+    position: relative;
+    width: 57.1875rem;
+    height: 38.3125rem;
+    flex-shrink: 0;
+    border-radius: 0.9375rem;
+    background: #F8F8F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .request {
@@ -271,6 +357,23 @@ input {
   justify-content: center;
   margin: 3rem;
 }
+
+.submit_button{
+    width: 43rem;
+    height: 4.1875rem;
+    flex-shrink: 0;
+    border-radius: 0.9375rem;
+    border-style: none;
+    background: #51D394;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-family: Inter;
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 3rem;
+}
 .submit_button {
   width: 43rem;
   height: 4.1875rem;
@@ -284,6 +387,7 @@ input {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+
 }
 
 /* 강좌가능시간대 */
@@ -292,6 +396,42 @@ input {
 }
 
 /* 멘토 레벨 게이지바 */
+.mentor_exp{
+    margin-top: 4rem;
+}
+.mentor_exp_name{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.progress-bar{
+    width: 64.0625rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    border-radius: 1.25rem;
+    background: #F8F8F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #000;
+    text-align: start;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.5rem;
+}
+
+.exp_h3{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: #000;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
 .mentor_exp {
   display: flex;
   flex-wrap: nowrap;
@@ -300,19 +440,40 @@ input {
 .exp_h3 {
   display: flex;
   align-items: flex-end;
+
 }
 
 /* 후기 등록 */
+.hr_review{
+    margin: 5rem 10rem 0 10rem;
+}
+
+.show_reviews{
+    margin-top: 3rem;
+}
+.review_head{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 1rem 0;
+}
+
 .review_head {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+}
+.back_icon{
+    position: absolute;
+    top: 2rem;
+    left: 10rem;
 }
 .back_icon {
   position: absolute;
   top: 2rem;
   left: 2rem;
 }
+
 h1 {
   color: #51d394;
   text-align: center;
@@ -331,12 +492,23 @@ h1 {
   font-weight: 500;
   line-height: normal;
 }
+.p_review_explain{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 2rem 0;
+}
 
 .input_content {
   display: flex;
   flex-wrap: nowrap;
   /* margin-right: 10rem; */
 }
+
 .review_p {
   width: 5rem;
   height: 2.4375rem;
@@ -364,6 +536,37 @@ h1 {
   font-weight: 700;
   line-height: normal;
   padding: 0.3rem 1rem;
+}
+.review_p{
+    width: 10rem;
+    height: 2.4375rem;
+    flex-shrink: 0;
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 1.49rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-right: 1rem;
+    margin: 1rem;
+}
+.review_input{
+    border-radius: 0.9375rem;
+    border: 1px solid #B0B0B0;
+    background: #FFF;
+    width: 37.4375rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.3rem 1rem;
+    margin: 0;
+
 }
 textarea.review_input {
   width: 37.4375rem;
