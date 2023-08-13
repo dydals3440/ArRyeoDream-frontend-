@@ -5,47 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../Lecture_CRUD.css">
+    <link rel="stylesheet" href="../Main.css" />
+    <script src="../Main.js" defer></script>
+    <link rel="shortcut icon" href="#" />
     
     <title>강좌 신청 - 후기 등록하기</title>
 </head>
 <body>
-    <div class="layout_create">
-        <div class="review_head"> <!-- 후기등록 h1 -->
-            <div class="back_icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="34" viewBox="0 0 19 34" fill="none">
-                    <path d="M17 2L2 17L17 32" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <h1>후기 등록</h1>
+    <!-- Header(Default) -->
+    <header>
+        <div class="headerContainer">
+        <img class="logo" src="../img/Logo.png" alt="알려DREAM 로고 이미지" />
+        <div class="search">
+            <input type="text" placeholder="검색어를 입력해주세요" />
+            <img
+            class="searchIcon"
+            src="../img/SearchIcon.svg"
+            alt="검색 이미지"
+            />
         </div>
-        <div class="review_explain">  <!-- 강좌를 신청할때 입력했던.. -->
-            <p class="p_review_explain">강좌를 신청할 때 입력했던 이름과 전화번호를 입력해주세요</p>
+        <div class="loginContainer">
+            <button class="login">로그인</button>
         </div>
-        <div class="input_list"> <!-- 강좌명/멘토 disabled 이름/전화번호/후기는 빈칸으로 -->
-            <div class="input_content">
-                <p class="review_p ">강좌 명</p>
-                <input type="text" class="review_input" id="lecture_id" placeholder="키오스크로 커피 주문하기" disabled>
+        </div>
+    </header>
+    <main class="main_review">
+        <hr class="hr_review">
+        <div class="layout_create">
+            <div class="review_head"> <!-- 후기등록 h1 -->
+                <div class="back_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="34" viewBox="0 0 19 34" fill="none">
+                        <path d="M17 2L2 17L17 32" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1>후기 등록</h1>
             </div>
-            <div class="input_content">
-                <p class="review_p">멘토</p>
-                <input type="text" class="review_input" id="mentor" placeholder="김가은" disabled>
+            <div class="review_explain">  <!-- 강좌를 신청할때 입력했던.. -->
+                <p class="p_review_explain">강좌를 신청할 때 입력했던 이름과 전화번호를 입력해주세요</p>
             </div>
-            <div class="input_content">
-                <p class="review_p">이름</p>
-                <input type="text" class="review_input" id="name">
-            </div>
-            <div class="input_content">
-                <p class="review_p">전화번호</p>
-                <input type="text" class="review_input" id="phone">
-            </div>
-            <div class="input_content">
-                <p class="review_p">후기</p>
-                <textarea type="text" class="review_input" id="comment"></textarea>
+            <div class="input_list"> <!-- 강좌명/멘토 disabled 이름/전화번호/후기는 빈칸으로 -->
+                <div class="input_content">
+                    <p class="review_p ">강좌 명</p>
+                    <input type="text" class="review_input" id="lecture_id" placeholder="키오스크로 커피 주문하기" disabled>
+                </div>
+                <div class="input_content">
+                    <p class="review_p">멘토</p>
+                    <input type="text" class="review_input" id="mentor" placeholder="김가은" disabled>
+                </div>
+                <div class="input_content">
+                    <p class="review_p">이름</p>
+                    <input type="text" class="review_input" id="name">
+                </div>
+                <div class="input_content">
+                    <p class="review_p">전화번호</p>
+                    <input type="text" class="review_input" id="phone">
+                </div>
+                <div class="input_content">
+                    <p class="review_p">후기</p>
+                    <textarea type="text" class="review_input" id="comment"></textarea>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="create_lecture_button"> <!-- 페이지 최하단 후기 등록하기버튼 -->
-        <button type="submit" class="submit_button">후기 등록하기</button>
-    </div>
+        <div class="create_lecture_button"> <!-- 페이지 최하단 후기 등록하기버튼 -->
+            <button type="submit" class="submit_button">후기 등록하기</button>
+        </div>
+    </main>
 </body>
 </html>

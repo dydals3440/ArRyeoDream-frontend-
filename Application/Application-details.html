@@ -5,87 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../Lecture_CRUD.css">
+    <link rel="stylesheet" href="../Main.css">
+    <script src="../Main.js"></script>
+    <link rel="shortcut icon" href="#" />
     
     <title>강좌 신청 - 상세</title>
 </head>
 <body>
-    <div class="layout_create">
-        <div class="input_lecture_head"><!-- 강의명과 지역_이미 정해져있으므로 신청시에는 선택 안되게끔  -->
-            <div class="lecture_name">
-                <h3 style="display: inline;">강좌 명</h3>
-                <input type="text" class="input_lecture_name">
+    <header>
+        <div class="headerContainer">
+            <img class="logo" src="../img/Logo.png" alt="알려DREAM 로고 이미지" />
+            <div class="search">
+              <input type="text" placeholder="검색어를 입력해주세요" />
+              <img
+                class="searchIcon"
+                src="../img/SearchIcon.svg"
+                alt="검색 이미지"
+              />
             </div>
-            <div class="lecture_region">
-                <h3 style="display: inline;">지역</h3>
-                <input type="text" class="input_lecture_region">
+            <div class="loginContainer">
+              <button class="login">로그인</button>
+            </div>
+          </div>
+    </header>
+    <main>
+        <div class="layout_create">
+            <div class="input_lecture_head"><!-- 강의명과 지역_이미 정해져있으므로 신청시에는 선택 안되게끔  -->
+                <div class="lecture_name">
+                    <h3 style="display: inline;">강좌 명</h3>
+                    <input type="text" class="input_lecture_name">
+                </div>
+                <div class="lecture_region">
+                    <h3 style="display: inline;">지역</h3>
+                    <input type="text" class="input_lecture_region">
+                </div>
+            </div>
+            <div class="lecture_details"> <!-- 강좌사진/강좌소개/가능요일 grid로 구성 -->
+                <div class="box2">
+                    <div class="lecture_img_mentee">
+                        <h3>강좌 사진</h3>
+                        <img src="../img/gray_box.png" alt="" class="gray_box_mentee"> <!-- 이미지 들어갈 회색 네모칸 -->
+                    </div>
+                    <div class="able_week_mentee">
+                        <h3 class="h3_able_week">가능 요일 선택</h3>
+                        <!-- 가능한요일선택 -->
+                        <div class="able_week_div">
+                            <input type="checkbox" class="checkbox" name="" id="MON">
+                            <label for="MON" class="label_week">월</label>
+                            <input type="checkbox" class="checkbox" name="" id="TUE">
+                            <label for="TUE" class="label_week">화</label>
+                            <input type="checkbox" class="checkbox" name="" id="WED">
+                            <label for="WED" class="label_week">수</label>
+                            <input type="checkbox" class="checkbox" name="" id="THU">
+                            <label for="THU" class="label_week">목</label>
+                            <input type="checkbox" class="checkbox" name="" id="FRI">
+                            <label for="FRI" class="label_week">금</label>
+                            <input type="checkbox" class="checkbox" name="" id="SAT">
+                            <label for="SAT" class="label_week">토</label>
+                            <input type="checkbox" class="checkbox" name="" id="SUN">
+                            <label for="SUN" class="label_week">일</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro_mentee">
+                    <h3>강좌 소개</h3>
+                    <input type="text" class="intro_lecture_mentee" disabled>
+                </div>
             </div>
         </div>
-        <div class="lecture_details"> <!-- 강좌사진/강좌소개/가능요일 grid로 구성 -->
-            <div class="box2">
-                <div class="lecture_img_mentee">
-                    <h3>강좌 사진</h3>
-                    <img src="../img/gray_box.png" alt="" class="gray_box_mentee"> <!-- 이미지 들어갈 회색 네모칸 -->
+        <div class="create_lecture_button"> <!-- 페이지 하단 강좌 신청하기버튼 -->
+            <button type="submit" class="submit_button">강좌 신청하기</button>
+        </div>
+        <div class="layout_under">
+            <div class="mentor_exp">  <!-- 멘토 레벨 게이지 바 -->
+                <div class="mentor_exp_name">
+                    <h2>@@@</h2> <h3 class="exp_h3">멘토의 레벨</h3>
                 </div>
-                <div class="able_week_mentee">
-                    <h3 class="h3_able_week">가능 요일 선택</h3>
-                    <!-- 가능한요일선택 -->
-                    <div class="able_week_div">
-                        <input type="checkbox" class="checkbox" name="" id="MON">
-                        <label for="MON" class="label_week">월</label>
-                        <input type="checkbox" class="checkbox" name="" id="TUE">
-                        <label for="TUE" class="label_week">화</label>
-                        <input type="checkbox" class="checkbox" name="" id="WED">
-                        <label for="WED" class="label_week">수</label>
-                        <input type="checkbox" class="checkbox" name="" id="THU">
-                        <label for="THU" class="label_week">목</label>
-                        <input type="checkbox" class="checkbox" name="" id="FRI">
-                        <label for="FRI" class="label_week">금</label>
-                        <input type="checkbox" class="checkbox" name="" id="SAT">
-                        <label for="SAT" class="label_week">토</label>
-                        <input type="checkbox" class="checkbox" name="" id="SUN">
-                        <label for="SUN" class="label_week">일</label>
+                <!-- exp게이지 바 -->
+                <div class="progress">
+                    <div
+                    class="progress-bar" 
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    >LV.17</div>
+                </div>
+            </div>
+            <div class="show_reviews">  <!-- 리뷰란 / 작성은 다른곳에서 후기열람만 가능 -->
+                <div class="enroll">
+                    <h3 class="h3_review">후기</h3>
+                    <input type="submit" class="submit_button_review" value="후기 등록하기">
+                </div>
+                <hr> <!-- 밑줄 -->
+                <div class="review_list">
+                    <div class="reviews">
+                        <h3 class="review_mentee_name">강**님</h3>
+                        <p class="review_content">고마워유</p>
+                        
                     </div>
                 </div>
             </div>
-            <div class="intro_mentee">
-                <h3>강좌 소개</h3>
-                <input type="text" class="intro_lecture_mentee" disabled>
-            </div>
         </div>
-    </div>
-    <div class="create_lecture_button"> <!-- 페이지 하단 강좌 신청하기버튼 -->
-        <button type="submit" class="submit_button">강좌 신청하기</button>
-    </div>
-    <div class="layout_under">
-        <div class="mentor_exp">  <!-- 멘토 레벨 게이지 바 -->
-            <div class="mentor_exp_name">
-                <h2>@@@</h2> <h3 class="exp_h3">멘토의 레벨</h3>
-            </div>
-            <!-- exp게이지 바 -->
-            <div class="progress">
-                <div
-                class="progress-bar" 
-                role="progressbar"
-                aria-valuenow="0"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                >LV.17</div>
-            </div>
-        </div>
-        <div class="show_reviews">  <!-- 리뷰란 / 작성은 다른곳에서 후기열람만 가능 -->
-            <div class="enroll">
-                <h3 class="h3_review">후기</h3>
-                <input type="submit" class="submit_button_review" value="후기 등록하기">
-            </div>
-            <hr> <!-- 밑줄 -->
-            <div class="review_list">
-                <div class="reviews">
-                    <h3 class="review_mentee_name">강**님</h3>
-                    <p class="review_content">고마워유</p>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
