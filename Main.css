@@ -57,6 +57,7 @@
   cursor: pointer;
   padding: 1rem;
   border-radius: 10rem;
+  text-decoration: none;
 }
 
 .login:hover {

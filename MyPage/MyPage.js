@@ -110,6 +110,7 @@ function showClassDetails(classId) {
     method: 'get',
     url: `../Mock/MyPage/DetailLecture.json`,
   }).then((response) => {
+    console.log(response);
     const classDetails = response.data;
     console.log(classDetails);
   });
