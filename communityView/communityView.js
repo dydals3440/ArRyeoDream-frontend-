@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Get the content ID from your desired source (for example, from URL parameters)
-   // Replace with the actual content ID you want to display
+  // Replace with the actual content ID you want to display
   const urlParams = new URLSearchParams(window.location.search);
   const contentId = urlParams.get('id');
 
@@ -12,7 +12,7 @@ $(document).ready(function () {
     console.log(response.data);
 
     //Find the content with the matching ID
-    const selectedContent = contents.find(content => content.id == contentId );
+    const selectedContent = contents.find((content) => content.id == contentId);
 
     console.log(selectedContent);
 
@@ -34,16 +34,15 @@ $(document).ready(function () {
       //countElement.textContent = selectedContent.comment.length; // Update to appropriate property
       contentElement.innerHTML = selectedContent.content;
 
-
       // Create and populate images container
       const imagesContainer = document.createElement('div');
       imagesContainer.classList.add('images'); // Add appropriate class
-      selectedContent.images.forEach(image => {
+      selectedContent.images.forEach((image) => {
         const imgElement = document.createElement('img');
         imgElement.classList.add('img');
         imgElement.src = image.link;
         imagesContainer.appendChild(imgElement);
-        console.log(imgElement)
+        console.log(imgElement);
       });
       document.querySelector('.board_view').appendChild(imagesContainer);
 
@@ -80,44 +79,37 @@ $(document).ready(function () {
       commentContainer.appendChild(dl);
       commentView.appendChild(commentContainer);
     });
-
   });
 });
 
-
 function getComment() {
-  const commentContent = document.getElementById("title").value;
+  const commentContent = document.getElementById('title').value;
   console.log(commentContent);
 
- // location.href = '../communityView.html';
- // console.log(location.href);
+  // location.href = '../communityView.html';
+  // console.log(location.href);
 
   $.ajax({
     type: 'POST',
-    url: '/api/community/commnet/{id}',           // 요청할 서버url
-    async: true,            // 비동기화 여부 (default : true)
-    headers: {              // Http header
-      "Content-Type": "application/json",
-      "X-HTTP-Method-Override": "POST"
+    url: `/api/community/commnet/${id}`, // 요청할 서버url
+    async: true, // 비동기화 여부 (default : true)
+    headers: {
+      // Http header
+      'Content-Type': 'application/json',
+      'X-HTTP-Method-Override': 'POST',
     },
-    dataType: 'json',       // 데이터 타입 (html, xml, json, text 등등)
-    data: JSON.stringify({  // 보낼 데이터 (Object , String, Array)
-      "content": commentContent,
+    dataType: 'json', // 데이터 타입 (html, xml, json, text 등등)
+    data: JSON.stringify({
+      // 보낼 데이터 (Object , String, Array)
+      content: commentContent,
     }),
-    success: function (result) { // 결과 성공 콜백함수
+    success: function (result) {
+      // 결과 성공 콜백함수
       console.log(result);
     },
-    error: function (request, status, error) { // 결과 에러 콜백함수
-      console.log(error)
-    }
-  })
-
-
+    error: function (request, status, error) {
+      // 결과 에러 콜백함수
+      console.log(error);
+    },
+  });
 }
-
-
-
-
-
-
-
