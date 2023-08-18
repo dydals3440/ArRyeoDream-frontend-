@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>커뮤니티</title>
+  <link rel="stylesheet" href="CommunityMedia.css">
+  <link rel="stylesheet" href="CommunityStyle.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="../Main.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="headerContainer">
+      <img class="logo" src="../img/Logo.png" alt="알려DREAM 로고 이미지" />
+      <div class="search">
+        <input type="text" placeholder="검색어를 입력해주세요" />
+        <img
+          class="searchIcon"
+          src="../img/SearchIcon.svg"
+          alt="검색 이미지"
+        />
+      </div>
+      <div class="loginContainer">
+        <button class="login">로그인</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <ul class="navbar_menu">
+      <li><a href="#">강좌 신청하기</a></li>
+      <li><a href="#">강좌 개설하기</a></li>
+      <li><a href="../communityList/index.html" class="on">커뮤니티</a></li>
+    </ul>
+  </nav>
+
+  <div class="board_wrap">
+    <select id="dataPerPage">
+      <option value="LATEST">최신순</option>
+      <option value="POPUL">인기순</option>
+    </select>
+    <span id="displayCount"></span>
+    <table id="dataTableBody">
+    </table>
+    <ul id="pagingul">
+    </ul>
+      <div class="board_list_wrap">
+        <div class="board_list">
+          <div class="top">
+            <div class="num">번호</div>
+            <div class="title">제목</div>
+            <div class="writer">글쓴이</div>
+            <div class="date">작성일</div>
+          </div>
+        </div>
+        <div class="board_page">
+          <a href="#" class="bt first"><<</a>
+          <a href="#" class="bt prev"><</a>
+          <a href="#" class="num on">1</a>
+          <a href="#" class="num">2</a>
+          <a href="#" class="num">3</a>
+          <a href="#" class="num">4</a>
+          <a href="#" class="num">5</a>
+          <a href="#" class="bt next">></a>
+          <a href="#" class="bt last">>></a>
+        </div>
+        <div class="pagination"></div>
+        <div class="bt_wrap">
+          <a href="../communityWrite/index.html" class="on">등록</a>
+        </div>
+      </div>
+    </div>
+  <script src="communityList.js"></script>
+  <script src="../Main.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.board_wrap {
+  width: 100%;
+  padding: 0 10%;
+  margin: 1% auto;
+}
+
+
+
+.bt_wrap {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0;
+  border-radius: 15px;
+}
+
+.bt_wrap a, .bt_wrap div{
+  display: inline-block;
+  min-width: 80px;
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #51D394;
+  border-radius: 15px;
+  font-size: 1.4rem;
+}
+
+.bt_wrap div {
+  margin-left: 0;
+}
+
+.bt_wrap div.on {
+  background: #51D394;
+  color: #fff;
+}
+
+.board_list {
+  width: 100%;
+
+}
+
+.board_list > div {
+  box-shadow: 1px 1px 1px 1px #b0b0b0;
+  border-radius: 15px;
+  font-size: 0;
+  margin-bottom: 10px;
+}
+
+.board_list > div.top {
+  box-shadow: none;
+
+}
+
+
+.board_list > div > div {
+  display: inline-block;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.board_list > div.top > div {
+  font-weight: 600;
+}
+
+.board_list .num {
+  width: 10%;
+}
+
+.board_list .title {
+  width: 50%;
+  text-align: left;
+}
+
+.board_list .top .title {
+  text-align: center;
+}
+
+.board_list .writer {
+  width: 15%;
+}
+
+.board_list .date {
+  width: 25%;
+}
+
+.board_list .count {
+  width: 10%;
+}
+
+.board_page {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0;
+}
+
+.board_page a {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  line-height: 100%;
+}
+
+.board_page a.bt {
+  padding-top: 10px;
+  font-size: 1.2rem;
+  letter-spacing: -1px;
+}
+
+.board_page a.num {
+  padding-top: 9px;
+  font-size: 1.4rem;
+}
+
+.board_page a.num.on {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #51D394;
+}
+
+
+.board_view {
+  width: 100%;
+  border: 1px solid #b0b0b0;
+  border-radius: 15px;
+}
+
+
+.board_view .title {
+  padding: 20px 10px;
+  margin: 0 5px;
+  border-bottom: 0.5px solid #d9d9d9;
+  font-size: 1.8rem;
+}
+
+.board_view .info {
+  padding: 10px;
+  margin: 0 5px;
+  border-bottom: 0.5px solid #d9d9d9;
+  font-size: 0;
+}
+
+.board_view .info dl {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.board_view .info dl:first-child {
+  padding-left: 0;
+}
+
+.board_view .info dl::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: block;
+  width: 1px;
+  height: 13px;
+  background: #ddd;
+}
+
+.board_view .info dl:first-child::before {
+  display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+  display: inline-block;
+  font-size: 1.4rem;
+}
+
+.board_view .info dl dt {
+
+}
+
+.board_view .info dl dd {
+  margin-left: 10px;
+  color: #777;
+}
+
+.board_view .cont {
+  padding: 15px;
+  line-height: 160%;
+  font-size: 1.4rem;
+}
+
+.board_write {
+  border: 1px solid #b0b0b0;
+  border-radius: 15px;
+  height: auto;
+}
+
+.board_write .title{
+  padding: 5px 15px;
+}
+
+
+.board_write .title dl {
+  font-size: 0;
+}
+
+
+.board_write .title dt,
+.board_write .title dd{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.4rem;
+}
+
+
+
+.board_write .title dt{
+  width: 50px;
+  padding: 0 10px;
+}
+
+.board_write .title dd {
+  width: calc(100% - 100px);
+}
+
+.board_write .title input[type="text"]{
+  padding: 10px;
+  box-sizing: border-box;
+  width: 80%;
+  border: none;
+}
+
+.board_write .cont {
+  border-top: 1px solid #b0b0b0;
+  margin: 0 15px;
+}
+
+.board_write .cont textarea {
+  display: block;
+  width: 100%;
+  height: 250px;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 0;
+  resize: none;
+}
+
+.board_write .img-upload{
+  margin: 10px;
+  padding: 0 10px;
+
+}
+
+
+.img{
+  width: 40%;
+  height: 20%;
+  padding: 1rem 0rem 1rem 1rem;
+}
+
+
+.comment_write{
+  border: 1px solid #b0b0b0;
+  height: auto;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.comment_container{
+  border-top:1px solid #b0b0b0 ;
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.comment_write input[type="text"]{
+  padding: 10px;
+  box-sizing: border-box;
+  width: 95%;
+  border: none;
+  font-size: 1.3rem;
+}
+.comment_write{
+  position: relative;
+}
+#co_write{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 3.5rem;
+  height: 2.5rem;
+  padding-top: 0.5rem;
+  color: #ffffff;
+  background-color: #51d394;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  text-align: ;
+
+}
+
+.comment_view #co_writer{
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+.comment_view #co_cont{
+  font-weight: lighter;
+  font-size: 1.3rem;
+  padding-top: 0.4rem;
+}
+.comment_view #co_created{
+  color: #b0b0b0;
+  font-size: 0.8rem;
+}
+
+

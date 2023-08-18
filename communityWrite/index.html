@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>커뮤니티 작성하기</title>
+  <link rel="stylesheet" href="CommunityMedia.css">
+  <link rel="stylesheet" href="CommunityStyle.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="../Main.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="headerContainer">
+      <img class="logo" src="../img/Logo.png" alt="알려DREAM 로고 이미지" />
+      <div class="search">
+        <input type="text" placeholder="검색어를 입력해주세요" />
+        <img
+          class="searchIcon"
+          src="../img/SearchIcon.svg"
+          alt="검색 이미지"
+        />
+      </div>
+      <div class="loginContainer">
+        <button class="login">로그인</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <ul class="navbar_menu">
+      <li><a href="#">강좌 신청하기</a></li>
+      <li><a href="#">강좌 개설하기</a></li>
+      <li><a href="../communityList/index.html" class="on">커뮤니티</a></li>
+    </ul>
+  </nav>
+  <div class="board_wrap">
+    <div class="board_write_wrap">
+      <div class="board_write">
+        <div class="title">
+          <dl>
+            <dd><input type="text" placeholder="제목을 입력하세요" id = "title"></dd>
+          </dl>
+        </div>
+        <div class="cont">
+          <textarea placeholder="내용을 입력하세요" id = "cont"></textarea>
+        </div>
+        <div class="image">
+          <form id="imageUploadForm">
+            <input type="file" class="img-upload" accept="image/*" required multiple>
+          </form>
+          <!--<input type="file" class="img-upload" accept="image/*" required multiple>-->
+        </div>
+      </div>
+      <div class = bt_wrap>
+        <div onclick="getMemberList()" class="on">등록</div>
+        <a href="../communityList/index.html">취소</a>
+      </div>
+    </div>
+  </div>
+  <script src="../Main.js"></script>
+  <script src="communityWrite.js"></script>
+</body>
+</html>
