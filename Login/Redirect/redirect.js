@@ -8,15 +8,20 @@ function exchangeKakaoCodeForToken(access_token) {
   };
   axios({
     method: 'post',
-    url: `/api/auth/kakao?code=${code}`,
+    url: `/api/auth/kakao`,
     headers: headers,
   })
     .then((response) => {
       console.log(response);
-      const accessToken = response.data.access_token;
+      const accessToken = response.jwt.accessToken;
       window.localStorage.setItem('accessToken', accessToken);
+
+      const refreshToken = response.jwt.refreshToken;
+      window.localStorage.setItem('refreshToken', refreshToken);
       // 로그인 성공 후 메인페이지 이동
-      window.location.assign('http://127.0.0.1:5500/Main.html');
+      window.location.assign(
+        'https://aesthetic-rabanadas-d6196b.netlify.app/Main.html'
+      );
     })
     .catch((err) => alert(err.message));
 }

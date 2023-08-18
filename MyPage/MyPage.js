@@ -2,6 +2,9 @@ const logo = document.querySelector('.logo');
 const backIcon = document.querySelector('.backIcon');
 const memberCancelBtn = document.querySelector('.membershipCancel__btn');
 
+// const accessToken = getItem('accessToken');
+// const refreshToken = getItem('refreshToken');
+
 logo.addEventListener('click', () => {
   window.location.assign('http://127.0.0.1:5500/Main.html');
 });
@@ -12,20 +15,22 @@ backIcon.addEventListener('click', () => {
 
 // 로그인 로직
 function hasToken() {
-  return localStorage.getItem('token') !== null;
+  return localStorage.getItem('accessToken') !== null;
 }
 
 // 로그아웃
 function logout() {
   console.log('로그아웃');
-  localStorage.removeItem('token');
+  localStorage.removeItem('accessToken');
   updateLoginStatus();
 }
 
 function login() {
   console.log('로그인');
   // 카카오 로그인 페이지로 이동
-  window.location.assign('http://127.0.0.1:5500/Login/login.html');
+  window.location.assign(
+    'https://aesthetic-rabanadas-d6196b.netlify.app/login'
+  );
   updateLoginStatus();
 }
 
@@ -52,7 +57,11 @@ updateLoginStatus();
 // 나의 강좌 MockData 연결
 axios({
   method: 'get',
-  url: '../Mock/MyPage/MyLecture.json',
+  url: `../Mock/MyPage/MyLecture.json`,
+  // headers: {
+  //   Authorization: `Bearer ${accessToken}`,
+  //   RefreshToken: `${refreshToken}`,
+  // },
 }).then((response) => {
   const classWrapper = document.querySelector('.classWrapper');
   const classData = response.data.content;
@@ -109,6 +118,10 @@ function showClassDetails(classId) {
   axios({
     method: 'get',
     url: `../Mock/MyPage/DetailLecture.json`,
+    // headers: {
+    //   Authorization: `Bearer ${accessToken}`,
+    //   RefreshToken: `${refreshToken}`,
+    // },
   }).then((response) => {
     console.log(response);
     const classDetails = response.data;
@@ -119,44 +132,56 @@ function showClassDetails(classId) {
 function showClassAttendee(classId) {
   axios({
     method: 'get',
-    url: `../Mock/MyPage/DetailLectureAttendee.json`,
+    url: '../Mock/MyPage/MyLecture.json',
+    // headers: {
+    //   Authorization: `Bearer ${accessToken}`,
+    //   RefreshToken: `${refreshToken}`,
+    // },
   }).then((response) => {
-    const classAttendee = response.data.attendee;
-    console.log(classAttendee);
+    const contents = response.data.content;
+    console.log(contents);
 
-    const attendeeContainer = document.createElement('div');
-    attendeeContainer.classList.add('attendeeContainer');
+    const selectedClass = contents.find((item) => item.id === classId);
 
-    const modifyContainer = document.createElement('div');
-    modifyContainer.classList.add('modifyContainer');
+    if (selectedClass) {
+      const classAttendee = selectedClass.attendeeList;
 
-    classAttendee.forEach((attendee) => {
-      // 유저 이름, 전화번호
-      const attendeeBox = document.createElement('div');
-      attendeeBox.classList.add('attendeeBox');
+      const attendeeWrapper = document.querySelector('.attendeeWrapper');
+      attendeeWrapper.innerHTML = ''; // Clear previous attendee data
 
-      const attendeeBox__name = document.createElement('p');
-      attendeeBox__name.textContent = attendee.name;
+      const attendeeContainer = document.createElement('div');
+      attendeeContainer.classList.add('attendeeContainer');
 
-      const attendeeBox__phone = document.createElement('p');
-      attendeeBox__phone.textContent = attendee.phone;
+      const modifyContainer = document.createElement('div');
+      modifyContainer.classList.add('modifyContainer');
 
-      attendeeBox.appendChild(attendeeBox__name);
-      attendeeBox.appendChild(attendeeBox__phone);
+      classAttendee.forEach((attendee) => {
+        console.log(attendee);
+        const attendeeBox = document.createElement('div');
+        attendeeBox.classList.add('attendeeBox');
 
-      attendeeContainer.appendChild(attendeeBox);
-    });
-    // 수정하기 버튼
-    const modifyButton = document.createElement('button');
-    modifyButton.classList.add('modifyWrapper__btn');
-    modifyButton.textContent = '수정하기';
-    console.log(modifyButton);
-    modifyContainer.appendChild(modifyButton);
+        const attendeeBox__name = document.createElement('p');
+        attendeeBox__name.textContent = attendee.name;
 
-    const attendeeWrapper = document.querySelector('.attendeeWrapper');
-    attendeeWrapper.appendChild(modifyContainer);
-    attendeeWrapper.appendChild(attendeeContainer);
-    // console.log(attendeeWrapper)
+        const attendeeBox__phone = document.createElement('p');
+        attendeeBox__phone.textContent = attendee.phone;
+
+        attendeeBox.appendChild(attendeeBox__name);
+        attendeeBox.appendChild(attendeeBox__phone);
+
+        attendeeContainer.appendChild(attendeeBox);
+      });
+
+      // 수정하기 버튼
+      const modifyButton = document.createElement('button');
+      modifyButton.classList.add('modifyWrapper__btn');
+      modifyButton.textContent = '수정하기';
+      console.log(modifyButton);
+      modifyContainer.appendChild(modifyButton);
+
+      attendeeWrapper.appendChild(modifyContainer);
+      attendeeWrapper.appendChild(attendeeContainer);
+    }
   });
 }
 
@@ -167,7 +192,8 @@ function cancelMembership() {
     method: 'delete',
     url: 'URL',
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${accessToken}`,
+      RefreshToken: `${refreshToken}`,
     },
   })
     .then((response) => {
@@ -187,7 +213,6 @@ memberCancelBtn.addEventListener('click', () => {
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('modifyWrapper__btn')) {
     console.log('수정');
-    const token = localStorage.getItem('token');
     // 수정을 원하는 강좌의 id
     // 다른 api로 부터 받아오기
     const courseId = 123;
@@ -204,7 +229,8 @@ document.addEventListener('click', (event) => {
       method: 'put',
       url: `http://localhost:8080/board/${courseId}`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
+        RefreshToken: `${refreshToken}`,
       },
       data: requestData,
     })
