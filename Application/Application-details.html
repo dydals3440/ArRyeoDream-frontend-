@@ -6,7 +6,7 @@
     
     <link rel="stylesheet" href="../Lecture_CRUD.css">
     <link rel="stylesheet" href="../Main.css">
-    <script src="../Main.js"></script>
+    <script src="../Main.js" defer></script>
     <link rel="shortcut icon" href="#" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="../Application/details.js" defer></script>
@@ -35,7 +35,7 @@
             <div class="input_lecture_head"><!-- 강의명과 지역_이미 정해져있으므로 신청시에는 선택 안되게끔  -->
                 <div class="lecture_name">
                     <h3 style="display: inline;" id="intro">강좌 명</h3>
-                    <input type="text" class="input_lecture_name">
+                    <input type="text" class="input_lecture_name" disabled>
                 </div>
                 <div class="lecture_region">
                     <h3 style="display: inline;">지역</h3>
@@ -65,7 +65,7 @@
             </div>
             <div class="lecture_details"> <!-- 강좌사진/강좌소개/가능요일 grid로 구성 -->
                 <div class="box2">
-                    <div class="lecture_img_mentee">
+                    <div id="imagePreview" class="lecture_img_mentee">
                         <h3>강좌 사진</h3>
                         <img src="../img/gray_box.png" alt="" class="gray_box_mentee"> <!-- 이미지 들어갈 회색 네모칸 -->
                     </div>
@@ -106,7 +106,7 @@
                 </div>
                 <!-- exp게이지 바 -->
                 <div class="progress">
-                    <div
+                    <div id="level"
                     class="progress-bar" 
                     role="progressbar"
                     aria-valuenow="0"
@@ -123,8 +123,8 @@
                 <hr> <!-- 밑줄 -->
                 <div class="review_list">
                     <div class="reviews">
-                        <h3 class="review_mentee_name">강**님</h3>
-                        <p class="review_content">고마워유</p>
+                        <h3 id="mentee_name" class="review_mentee_name">강**님</h3>
+                        <p id="mentee_comment" class="review_content">고마워유</p>
                         
                     </div>
                 </div>

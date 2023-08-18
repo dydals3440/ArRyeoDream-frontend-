@@ -1,12 +1,17 @@
+let checkedArrayWeek = [];
+let checkedArrayregion = [];
+
+
 function CheckedWeek(){
-    // $("#label_week1").css("background-color", "#51d394");
     $('input[name="week"]').change(function () {
         $('input[name="week"]').each(function () {
           var checked = $(this).prop("checked");
-          var $label = $(this).next();
-    
-          if (checked) $label.css("background-color", "#51d394");
-          else $label.css("background-color", "#fff");
+          localStorage.setItem("checked", checked);
+          var weekContent = $(this).next();
+          // console.log("로컬스토리지 넣기전: ", weekContent)
+          localStorage.setItem("Label", weekContent[0].htmlFor);
+          if (checked) weekContent.css("background-color", "#51d394");
+          else weekContent.css("background-color", "#fff");
         });
       });
 }
@@ -80,6 +85,106 @@ function region_change(key,sel){
                 sel.options[i+1] = new Option(name[i],val[i]);
             }
         }
+        localStorage.setItem("area_num",key);
+        localStorage.setItem("area1", cat1_name[key-1]);
+        localStorage.setItem("catnum", cat2_num[key]);
+        localStorage.setItem("catname", cat2_name[key]);
+        // console.log(cat1_name[key-1],cat2_name[index]);
+}
+function loggg(area){
+  var area1 = localStorage.getItem("area1");
+  checkedArrayregion.push(area1);
+  // console.log(checkedArrayregion);
+  var key = localStorage.getItem("area_num");
+  
+  if (key == 1) {
+    area = area - 16; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 2) {
+    area = area - 41; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 3) {
+    area = area - 57; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 4) {
+    area = area - 65; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 5) {
+    area = area - 75; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 6) {
+    area = area - 80; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 7) {
+    area = area - 85; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 8) {
+    area = area - 90; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 9) {
+    area = area - 108; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 10) {
+    area = area - 148; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 11) {
+    area = area - 168; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 12) {
+    area = area - 192; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 13) {
+    area = area - 214; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 14) {
+    area = area - 229; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 15) {
+    area = area - 233; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+  if (key == 16) {
+    area = area - 248; 
+    var area2 = cat2_name[key][area-1];
+    checkedArrayregion.push(area2);
+  }
+
+  // checkedArrayregion = checkedArrayregion.slice(-2);
+  var removeBy2 = checkedArrayregion.length -2;
+  if (removeBy2 > 0) {
+    checkedArrayregion.splice(0,removeBy2);
+  }
+  console.log(checkedArrayregion);
+  
 }
 
 
@@ -88,23 +193,62 @@ var title = $('#title').val();
 var intro = $('#intro').val();
 var region = $('#region').val();
 var week = $('#week').val();
-var images = $('#').val();
-
-function refresh(){
-  $.ajax({
-    type : 'POST',
-    url : '/api/lecture/board',
-    data : JSON.stringify({
-      "title" : title,
-      "intro" : intro,
-      "region" : region, 
-      "week" : week,
-      "images" : ["이미지 링크1", "이미지 링크2"]
-    }),
-    success : function(data){
-      // 200:ok,
-      // 400:bad_request,
-      // 401:unauthorized
-    }
-  })
+var images = $('#imagePreview').val();
+var introText = $("#intro").val();
+function clickSubmit(){
+  // intro.replaceAll("<br>", "\r\n");
+  $(document).ready(function() {
+    var convertedText = introText.replace(/<br>/g, "\r\n");
+  });
+  var checked = localStorage.getItem("checked");
+  var weekContent = localStorage.getItem("Label");
+  if (checked) { //check된 요일을 배열에 넣는 코드
+    checkedArrayWeek.push(weekContent);
+      if (checked) {
+        console.log("요일 요소: " ,weekContent);
+        checkedArrayWeek.push(weekContent);
+      }
+      checkedArrayWeek = new Set(checkedArrayWeek);
+      console.log("요일 배열: ", checkedArrayWeek);
+  }
+  
+  function refresh(){
+    $.ajax({
+      type : 'POST',
+      url : '/api/lecture/board',
+      data : JSON.stringify({
+        "title" : title,
+        "intro" : intro,
+        "region" : checkedArrayregion, // ex. ['인천', '부평구']
+        "week" : checkedArrayWeek, //checkedArrayWeek에 요일이 담겨있음
+        "images" : images
+      }),
+      success : function(data){
+        // 200:ok,
+        // 400:bad_request,
+        // 401:unauthorized
+      }
+    });
+  }
+  refresh();
 }
+
+
+
+
+//이미지 등록하고 삭제하는 함수
+$(document).ready(function() {
+  $("#uploadButton").change(function(event) {
+      var selectedFile = event.target.files[0];
+      if (selectedFile) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+              $("#imagePreview").attr("src", e.target.result);
+          };
+          reader.readAsDataURL(selectedFile);
+      }
+  });
+  $("#delete_img").click(function(){
+    $("#imagePreview").attr("src", "../img/gray_box.png");
+  })
+});

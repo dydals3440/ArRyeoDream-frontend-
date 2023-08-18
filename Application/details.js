@@ -1,15 +1,13 @@
 
 
 function CheckedWeek(){
-    console.log("h1");
-    // $("#label_week1").css("background-color", "#51d394");
-    $('label[class="label_week"]').change(function () {
-        $('label[class="label_week"]').each(function () {
+    $('input[name="week"]').change(function () {
+        $('input[name="week"]').each(function () {
           var checked = $(this).prop("checked");
           var $label = $(this).next();
     
-          if (checked) $label.css("background-color", "#fff");
-          else $label.css("background-color", "#51d394");
+          if (checked) $label.css("background-color", "#51d394");
+          else $label.css("background-color", "#fff");
         });
       });
 }
@@ -70,8 +68,6 @@ cat2_name[16] = new Array('제천시','청주시 상당구','청주시 흥덕구
 
 function region_change(key,sel){
     if(key == '') return;
-    console.log(key);
-    console.log(sel);
     var index = parseInt(key) ;
         if( index >= 0 && index < cat2_name.length){
             var name = cat2_name[index];
@@ -92,102 +88,59 @@ var intro = $('#intro').val();
 var region = $('#region').val();
 var week = $('#week').val();
 var author = $('author').val();
+var level = $('level').val();
+var imagePreview = $('imagePreview').val();
+var mentee_name = $('mentee_name').val();
+var mentee_comment = $('mentee_comment').val();
 
-//페이지가 로드되면 코드블럭 안의 함수 실행
-// document.addEventListener("DOMContentLoaded", function(){
-//     refresh();
-// });
+// 페이지가 로드되면 코드블럭 안의 함수 실행
+document.addEventListener("DOMContentLoaded", function(){
+    refresh();
+});
+$(document).ready(function() {
+    function refresh(){ //강좌 상세 조회를 위한 api
+        $(".progress-bar").attr("style", "width: calc(100 /100 *" + 17 + "%)"); //17 => level로 바꾸기
+        $.ajax({
+            type :'GET',
+            url: "/api/lecture/board/{id}",
 
-// function refresh(){ //강좌 상세 조회를 위한 api
-//     $(".progress-bar").attr("style", "width: calc(100 /100 *" + 17 + "%)"); //17 => level로 바꾸기
-//     $.ajax({
-//         type :'GET',
-//         url: "/api/lecture/board/{id}",
-
-//         success : function(data){
-//             //200 : ok
-//             "id" = 0,
-//             "title" = title,
-//             "intro" = intro,
-//             "region" = region, // ['서울', '강남'] 이런식으로 배열형태로 받을 수 있는지
-//             "week" = week, // ['WED', 'SAT', 'SUN'] 이런식으로 받을 수 있는지
-//             "author" : {
-//                 // $(".progress-bar").attr("style", "width: calc(100 /12 *" + level + "%)").css("background-color", "51d394");
-//                 "nickname" = author,
-//                 "level" : 5
-//             },
-//             "images" : [
-//                 {
-//                     "id" : 0,
-//                     "link" : "image link"
-//                 },
-//                 {
-//                     "id" : 1,
-//                     "link" : "imaeg link"
-//                 }
-//             ],
-//             "comment" : [
-//                 {
-//                     "id" : 1,
-//                     "name" : "노명욱",
-//                     "content" : "아무런 도움이 되지 못했어요"
-//                 },
-//                 {
-//                     "id" : 2,
-//                     "name" : "이은지",
-//                     "content" : "날먹강의 비추합니다"
-//                 }
-//             ],
-//             "created" : "2023-08-07 14:55:54",
-//             "updated" : "2023-08-07 14:55:54"
-//         }, error: function(){
-//             //400 : bad_request
-//         }
-//     })
-// }
-
-
-var namee = $('#').val();
-var phone = $('#').val();
-var content = $('#').val();
-
-function comment(){
-    $.ajax({
-        type: 'POST',
-        url: '/api/lecture/comment/{id}',
-        data : JSON.stringify({
-            "name" : namee,
-            "phone" : phone,
-            "content" : content
+            success : function(data){
+                //200 : ok
+                "id" = 0,
+                "title" = title,
+                "intro" = intro,
+                "region" = region, // ['서울', '강남'] 이런식으로 배열형태로 받을 수 있는지
+                "week" = week, // ['WED', 'SAT', 'SUN'] 이런식으로 받을 수 있는지
+                "author" = {
+                    // $(".progress-bar").attr("style", "width: calc(100 /12 *" + level + "%)").css("background-color", "51d394");
+                    author,
+                    level
+                },
+                "images" = [
+                    {
+                        "id" : 0,
+                        "link" : imagePreview
+                    }
+                ],
+                "comment" = [
+                    {
+                        "id" : 1,
+                        "name" : mentee_name,
+                        "content" : mentee_comment
+                    },
+                    {
+                        "id" : 2,
+                        "name" : "이은지",
+                        "content" : "날먹강의 비추합니다"
+                    }
+                ],
+                "created" = "2023-08-07 14:55:54",
+                "updated" = "2023-08-07 14:55:54"
+            }, error: function(){
+                //400 : bad_request
+            }
         })
-    })
-}
-
-function comment_change(){
-    $.ajax({
-        type: 'PUT',
-        url: '/api/lecture/comment/{id}',
-        data : JSON.stringify({
-            "name" : "김가은",
-            "phone" : "01012345678",
-            "content" : "여기 강좌 추천합니다"
-        }),
-        success : function(data){
-            // 200:ok,
-            // 400:bad_request,
-            // 401:unauthorized //해당 강좌에 신청하지 않은 유저일 경우
-        }
-    })
-}
-
-function comment_delete(){
-    $.ajax({
-        type: 'POST',
-        url: '/api/lecture/comment/{id}',
-        success : function(data){
-            // 200:ok,
-            // 400:bad_request,
-            // 401:unauthorized //해당 강좌에 신청하지 않은 유저일 경우
-          }
-    })
-}
+    
+    }
+    refresh();
+});

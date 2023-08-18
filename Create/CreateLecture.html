@@ -39,7 +39,7 @@
             </div>
             <div class="lecture_region">
                 <h3 style="display: inline;">지역</h3>
-                <select name="h_area1" onChange="region_change(this.value,h_area2)" class="h_area">
+                <select name="h_area1" id="h_area1" onChange="region_change(this.value,h_area2)" class="h_area">
                   <option>-선택-</option>
                   <option value='1'>서울</option>
                   <option value='2'>부산</option>
@@ -52,20 +52,20 @@
                   <option value='9'>경기</option>
                   <option value='10'>경남</option>
                   <option value='11'>경북</option>
-                  <option value='12' >전남</option>
+                  <option value='12'>전남</option>
                   <option value='13'>전북</option>
                   <option value='14'>제주</option>
                   <option value='15'>충남</option>
                   <option value='16'>충북</option>
                 </select>
-                <select name="h_area2" id="h_area2" class="h_area">
+                <select name="h_area2" id="h_area2" class="h_area" onChange="loggg(this.value)">
                   <option>-선택-</option>
               </select>
             </div>
         </div>
         <div class="intro"><!-- 강좌 소개를 써넣을 박스 -->
             <h3>강좌 소개</h3>
-            <textarea type="text" class="intro_lecture" placeholder="500자 이내로 작성해주세요"></textarea>
+            <textarea type="text" id="intro" class="intro_lecture" placeholder="500자 이내로 작성해주세요"></textarea>
             <!-- https://tried.tistory.com/95   디비에 넘길때에 이 링크참조하기 -->
         </div>
     </div>
@@ -73,12 +73,14 @@
         <div class="lecture_img"><!-- 강좌개설시에 사진 넣을 박스 -->
             <h3>사진 등록</h3>
             <div class="box1">
-                <div class="gray_box">
-                    <img src="../img/gray_box.png" alt="" class="gray_box"> <!-- 이미지가 들어갈 회색 네모칸-->
+                <div class="img_box">
+                    <img id="imagePreview" src="../img/gray_box.png" alt="../img/gray_box.png" class="gray_box"> <!-- 이미지가 들어갈 회색 네모칸-->
                 </div>
                 <div class="box2">
-                    <button class="button_for_img">사진 등록</button>
-                    <button class="button_for_img">사진 삭제</button>
+                    <input type="file" id="uploadButton"></input>
+                    <label for="uploadButton" class="button_for_img">사진 등록</label>
+                    <button id="delete_img" ></button>
+                    <label for="delete_img" class="button_for_img">사진 삭제</label>
                 </div>
             </div>
         </div>
@@ -105,7 +107,7 @@
     </section>
     
     <div class="create_lecture_button"><!-- 페이지 최하단 강좌 개설하기버튼 -->
-        <button type="submit" class="submit_button">강좌 개설하기</button>
+        <button type="submit" class="submit_button" onclick="clickSubmit()">강좌 개설하기</button>
     </div>
     </main>
   </body>

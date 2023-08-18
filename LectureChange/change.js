@@ -1,3 +1,18 @@
+
+const checkedArrayWeek = [];
+const checkedArrayregion = [];
+function clickSubmit(){
+  if (checked) {
+    checkedArrayWeek.push($label[0].htmlFor);
+      if (checked) {
+        // console.log($label[0].htmlFor);
+        checkedArrayWeek.push($label[0].htmlFor);
+      }
+      checkedArrayWeek = new Set(checkedArrayWeek);
+  }
+  
+}
+
 function CheckedWeek(){
     // $("#label_week1").css("background-color", "#51d394");
     $('input[name="week"]').change(function () {
@@ -80,14 +95,111 @@ function region_change(key,sel){
                 sel.options[i+1] = new Option(name[i],val[i]);
             }
         }
+        localStorage.setItem("area_num",key);
+        localStorage.setItem("area1", cat1_name[key-1]);
+        localStorage.setItem("catnum", cat2_num[key]);
+        localStorage.setItem("catname", cat2_name[key]);
 }
+
+function loggg(area){
+    var area1 = localStorage.getItem("area1");
+    checkedArrayregion.push(area1);
+    // console.log(checkedArrayregion);
+    var key = localStorage.getItem("area_num");
+    
+    if (key == 1) {
+      area = area - 16; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 2) {
+      area = area - 41; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 3) {
+      area = area - 57; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 4) {
+      area = area - 65; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 5) {
+      area = area - 75; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 6) {
+      area = area - 80; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 7) {
+      area = area - 85; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 8) {
+      area = area - 90; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 9) {
+      area = area - 108; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 10) {
+      area = area - 148; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 11) {
+      area = area - 168; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 12) {
+      area = area - 192; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 13) {
+      area = area - 214; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 14) {
+      area = area - 229; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 15) {
+      area = area - 233; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+    if (key == 16) {
+      area = area - 248; 
+      var area2 = cat2_name[key][area-1];
+      checkedArrayregion.push(area2);
+    }
+  
+    // checkedArrayregion = checkedArrayregion.slice(-2);
+    var removeBy2 = checkedArrayregion.length -2;
+    if (removeBy2 > 0) {
+      checkedArrayregion.splice(0,removeBy2);
+    }
+    console.log(checkedArrayregion);
+  }
 
 
 var title = $('#title').val();
 var intro = $('#intro').val();
-var region = $('#region').val();
-var week = $('#week').val();
-var images = $('#').val();
+// var images = $('#').val();
 
 function refresh(){
     $.ajax({
@@ -96,8 +208,8 @@ function refresh(){
         data : JSON.stringify({
             "title" : title,
             "intro" : intro,
-            "region" : region, 
-            "week" : week,
+            "region" : checkedArrayregion, // ex. ['인천', '부평구']
+            "week" : checkedArrayWeek, // ex. ['MON', 'WED']
             "images" : ["이미지 링크1", "이미지 링크2"]
         }),
         success : function(data){
@@ -107,3 +219,20 @@ function refresh(){
           }
     })
 }
+
+//이미지 등록하고 삭제하는 함수
+$(document).ready(function() {
+    $("#uploadButton").change(function(event) {
+        var selectedFile = event.target.files[0];
+        if (selectedFile) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $("#imagePreview").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(selectedFile);
+        }
+    });
+    $("#delete_img").click(function(){
+      $("#imagePreview").attr("src", "../img/gray_box.png");
+    })
+  });

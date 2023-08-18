@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>알려DREAM</title>
+    <title>메인 보드</title>
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="../Main.css"/>
     <link rel="stylesheet" href="../MyPage/MyPage.css">
-    <script src="../MyPage/MyPage.js" defer></script>
+  
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="./MainBoard.js" defer></script>
   </head>
   <body>
     <!-- Header -->
@@ -30,35 +33,17 @@
       </header>
     <!-- Main Page -->
     <main>
-      <!-- 뒤로가기, 페이지 안내 -->
-      <div class="dividerContainer">
-        <img class="backIcon" src="../img/arrow.svg" alt="뒤로가기 이미지" />
-        <h3>마이페이지</h3>
-        <div></div>
-      </div>
+      
+      
       <div class="divider"></div>
-      <!-- 나의 개설 강좌, 로그아웃 헤더 -->
-      <div class="myPageContainer">
-        <p>나의 개설 강좌</p>
-        <button class="logout">
-          <p>로그아웃</p>
-          <img src="../img/Logout.png" alt="로그아웃 이미지" />
-        </button>
-      </div>
+      
       <!-- 강좌 나열 -->
-      <section>
+      <section style="margin-top: 2rem;">
         <!-- My Page 강좌 정보 -->
-        <div class="classWrapper"></div>
-        <!-- 수정 페이지 -->
-        <div class="modifyWrapper">
-          <!-- <button class="modifyWrapper__btn">수정하기</button> -->
+        <div class="classWrapper">
+          
         </div>
-        <!-- 수강자 이름 전화번호 정보 -->
-        <div class="attendeeWrapper"></div>
-        <!-- 회원 탈퇴 -->
-        <div class="memberQuit">
-          <button class="membershipCancel__btn">회원 탈퇴하기</button>
-        </div>
+        
       </section>
     </main>
   </body>

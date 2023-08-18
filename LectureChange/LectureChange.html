@@ -58,7 +58,7 @@
                   <option value='15'>충남</option>
                   <option value='16'>충북</option>
                 </select>
-                <select name="h_area2" id="h_area2" class="h_area">
+                <select name="h_area2" id="h_area2" class="h_area" onChange="loggg(this.value)">
                   <option>-선택-</option>
               </select>
             </div>
@@ -74,11 +74,13 @@
             <h3>사진 등록</h3>
             <div class="box1">
                 <div class="gray_box">
-                    <img src="../img/gray_box.png" alt="" class="gray_box"> <!-- 이미지가 들어갈 회색 네모칸-->
+                    <img id="imagePreview" src="../img/gray_box.png" alt="" class="gray_box"> <!-- 이미지가 들어갈 회색 네모칸-->
                 </div>
                 <div class="box2">
-                    <button class="button_for_img">사진 등록</button>
-                    <button class="button_for_img">사진 삭제</button>
+                    <input type="file" id="uploadButton"></input>
+                    <label for="uploadButton" class="button_for_img">사진 등록</label>
+                    <button id="delete_img" ></button>
+                    <label for="delete_img" class="button_for_img">사진 삭제</label>
                 </div>
             </div>
         </div>
