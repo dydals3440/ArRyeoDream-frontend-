@@ -574,5 +574,59 @@ textarea.review_input {
 }
 
 @media screen and (max-width: 767px){
-  /* body{ background-color: navy; } */
+  h2,h3{
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .layout_create,
+  .layout_under,
+  .layout_exp {
+      width: 100%; /* 화면 너비에 맞게 조정 */
+    }
+  .input_lecture_name{
+    width: 7rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .h_area{
+    width: 3.5rem;
+    height: 2rem;
+    font-size: 100%;
+  }
+  
+  .intro_lecture{
+    width: 20rem;
+    height: 7rem;
+    font-size: 1rem;
+  }
+  .img_day{
+    display: flex;
+    flex-direction: column;
+  }
+  .lecture_img,
+  .able_week{
+    margin: unset;
+  }
+  .gray_box{
+    width: 10rem;
+    height: 7rem;
+  }
+  .able_week_div{
+    margin: unset;
+  }
+  .label_week{
+    width: 1.5rem;
+    height: 1.7rem;
+    font-size: 1rem;
+  }
+  .button_for_img{
+    width: 4rem;
+    height: 2rem;
+    font-size: 75%;
+  }
+  .submit_button{
+    width: 35rem;
+  }
+
 }
+
