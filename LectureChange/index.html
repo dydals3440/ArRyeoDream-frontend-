@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강좌 수정</title>
+    <link rel="stylesheet" href="../Main.css" />
+    <link rel="stylesheet" href="../Lecture_CRUD.css">
+    <script src="../Main.js" defer></script>
+    <link rel="shortcut icon" href="#" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="./change.js" defer></script>
+  </head>
+  <body>
+    <!-- Header(Default) -->
+    <header>
+      <div class="headerContainer">
+        <img class="logo" src="../img/Logo.png" alt="알려DREAM 로고 이미지" />
+        <div class="search">
+          <input type="text" placeholder="검색어를 입력해주세요" />
+          <img
+            class="searchIcon"
+            src="../img/SearchIcon.svg"
+            alt="검색 이미지"
+          />
+        </div>
+        <div class="loginContainer">
+          <button class="login">로그인</button>
+        </div>
+      </div>
+    </header>
+    <!-- Main Page -->
+    <main>
+      <div class="layout_create">
+        <div class="input_lecture_head"><!-- 강의명과 지역  -->
+            <div class="lecture_name">
+                <h3 style="display: inline;">강좌 명</h3>
+                <input type="text" class="input_lecture_name">
+            </div>
+            <div class="lecture_region">
+                <h3 style="display: inline;">지역</h3>
+                <select name="h_area1" onChange="region_change(this.value,h_area2)" class="h_area">
+                  <option>-선택-</option>
+                  <option value='1'>서울</option>
+                  <option value='2'>부산</option>
+                  <option value='3'>대구</option>
+                  <option value='4'>인천</option>
+                  <option value='5'>광주</option>
+                  <option value='6'>대전</option>
+                  <option value='7'>울산</option>
+                  <option value='8'>강원</option>
+                  <option value='9'>경기</option>
+                  <option value='10'>경남</option>
+                  <option value='11'>경북</option>
+                  <option value='12' >전남</option>
+                  <option value='13'>전북</option>
+                  <option value='14'>제주</option>
+                  <option value='15'>충남</option>
+                  <option value='16'>충북</option>
+                </select>
+                <select name="h_area2" id="h_area2" class="h_area" onChange="loggg(this.value)">
+                  <option>-선택-</option>
+              </select>
+            </div>
+        </div>
+        <div class="intro"><!-- 강좌 소개를 써넣을 박스 -->
+            <h3>강좌 소개</h3>
+            <textarea type="text" class="intro_lecture" placeholder="500자 이내로 작성해주세요"></textarea>
+            <!-- https://tried.tistory.com/95   디비에 넘길때에 이 링크참조하기 -->
+        </div>
+    </div>
+    <section class="img_day">
+        <div class="lecture_img"><!-- 강좌개설시에 사진 넣을 박스 -->
+            <h3>사진 등록</h3>
+            <div class="box1">
+                <div class="gray_box">
+                    <img id="imagePreview" src="../img/gray_box.png" alt="" class="gray_box"> <!-- 이미지가 들어갈 회색 네모칸-->
+                </div>
+                <div class="box2">
+                    <input type="file" id="uploadButton"></input>
+                    <label for="uploadButton" class="button_for_img">사진 등록</label>
+                    <button id="delete_img" ></button>
+                    <label for="delete_img" class="button_for_img">사진 삭제</label>
+                </div>
+            </div>
+        </div>
+        <div class="able_week">
+            <h3 class="h3_able_week">가능 요일 선택</h3>
+            <!-- 가능한요일선택 -->
+            <div class="able_week_div">
+                <input type="checkbox" class="checkbox" name="week" id="MON">
+                <label for="MON" class="label_week" onclick="CheckedWeek()">월</label>
+                <input type="checkbox" class="checkbox" name="week" id="TUE">
+                <label for="TUE" class="label_week" onclick="CheckedWeek()">화</label>
+                <input type="checkbox" class="checkbox" name="week" id="WED">
+                <label for="WED" class="label_week" onclick="CheckedWeek()">수</label>
+                <input type="checkbox" class="checkbox" name="week" id="THU">
+                <label for="THU" class="label_week" onclick="CheckedWeek()">목</label>
+                <input type="checkbox" class="checkbox" name="week" id="FRI">
+                <label for="FRI" class="label_week" onclick="CheckedWeek()">금</label>
+                <input type="checkbox" class="checkbox" name="week" id="SAT">
+                <label for="SAT" class="label_week" onclick="CheckedWeek()">토</label>
+                <input type="checkbox" class="checkbox" name="week" id="SUN">
+                <label for="SUN" class="label_week" onclick="CheckedWeek()">일</label>
+            </div>
+        </div>
+    </section>
+    
+    <div class="create_lecture_button"><!-- 페이지 최하단 강좌 개설하기버튼 -->
+        <button type="submit" class="submit_button">강좌 개설하기</button>
+    </div>
+    </main>
+  </body>
+</html>
