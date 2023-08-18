@@ -102,7 +102,7 @@ $(document).ready(function() {
         $(".progress-bar").attr("style", "width: calc(100 /100 *" + 17 + "%)"); //17 => level로 바꾸기
         $.ajax({
             type :'GET',
-            url: "/api/lecture/board/{id}",
+            url: `http://3.37.33.253:8080/api/lecture/board/${id}`,
 
             success : function(data){
                 //200 : ok
