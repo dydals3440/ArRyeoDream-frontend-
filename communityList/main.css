@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+/* Header Section */
+
+.headerContainer {
+  margin-top: 4rem;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.search {
+  border: 1px solid #51d394;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  padding: 0.8rem;
+}
+
+.search input {
+  font-size: 1.25rem;
+  border: none;
+  width: 90%;
+  color: #b0b0b0;
+}
+
+.searchIcon {
+  cursor: pointer;
+}
+
+.searchIcon:hover {
+  transform: scale(1.5);
+}
+
+.loginContainer {
+  margin-left: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: center;
+  white-space: nowrap;
+}
+
+.login {
+  border: none;
+  background-color: #51d394;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 10rem;
+}
+
+.login:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .header {
+    width: 100%;
+    padding: 0 10%;
+  }
+
+  .logo {
+    width: 80px;
+    height: 50px;
+  }
+
+  .loginContainer {
+    display: none;
+  }
+
+  .search input {
+    font-size: 0.65rem;
+    border: none;
+    width: 80%;
+    color: #b0b0b0;
+  }
+
+  .myPageContainer {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .myPageContainer p {
+    margin: 0;
+  }
+
+  .myPageContainer .logout {
+    margin: 0;
+  }
+
+  .classWrapper {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1f;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.navbar {
+  padding: 15px 10px 10px;
+  width: 80%;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 15px 25px;
+  color: #b0b0b0;
+}
+
+.navbar_menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar_menu li {
+  padding: 10px;
+}
+
+.navbar_menu a.on {
+  color: #51D394;
+  border-bottom: 5px solid #51d394;
+}
