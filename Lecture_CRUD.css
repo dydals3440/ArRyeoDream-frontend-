@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
 }
 h2,h3{
     color: #000;
@@ -58,14 +59,14 @@ input {
   display: flex;
   align-items: center;
 }
-.input_lecture_region {
+.h_area {
   border-radius: 0.9375rem;
   border: 1px solid #b0b0b0;
   background: #fff;
-  width: 15.5rem;
+  width: 7rem;
   height: 3.5rem;
   flex-shrink: 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 /* 강좌 소개 */
@@ -125,7 +126,15 @@ input {
   flex-shrink: 0;
 }
 
+#uploadButton,
+#delete_img{
+  display: none;
+}
+
 .button_for_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 9rem;
   height: 3rem;
   flex-shrink: 0;
@@ -289,15 +298,6 @@ input {
     justify-content: center;
     margin-top: 10rem;
 }
-.popup{
-    position: relative;
-    width: 57.1875rem;
-    height: 38.3125rem;
-    flex-shrink: 0;
-    border-radius: 0.9375rem;
-    background: #F8F8F8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
 
 .request {
   display: flex;
@@ -374,20 +374,9 @@ input {
     line-height: normal;
     margin: 3rem;
 }
-.submit_button {
-  width: 43rem;
-  height: 4.1875rem;
-  flex-shrink: 0;
-  border-radius: 0.9375rem;
-  background: #51d394;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  font-family: Inter;
-  font-size: 1.5625rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-
+.submit_button:hover,
+.submit_button_review:hover {
+  transform: scale(1.1);
 }
 
 /* 강좌가능시간대 */
@@ -397,12 +386,17 @@ input {
 
 /* 멘토 레벨 게이지바 */
 .mentor_exp{
-    margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 4rem;
+  
 }
 .mentor_exp_name{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    margin: 0 1rem;
 }
 .progress-bar{
     width: 64.0625rem;
@@ -578,3 +572,61 @@ textarea.review_input {
   height: 3.5rem;
   flex-shrink: 0;
 }
+
+@media screen and (max-width: 767px){
+  h2,h3{
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .layout_create,
+  .layout_under,
+  .layout_exp {
+      width: 100%; /* 화면 너비에 맞게 조정 */
+    }
+  .input_lecture_name{
+    width: 7rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .h_area{
+    width: 3.5rem;
+    height: 2rem;
+    font-size: 100%;
+  }
+  
+  .intro_lecture{
+    width: 20rem;
+    height: 7rem;
+    font-size: 1rem;
+  }
+  .img_day{
+    display: flex;
+    flex-direction: column;
+  }
+  .lecture_img,
+  .able_week{
+    margin: unset;
+  }
+  .gray_box{
+    width: 10rem;
+    height: 7rem;
+  }
+  .able_week_div{
+    margin: unset;
+  }
+  .label_week{
+    width: 1.5rem;
+    height: 1.7rem;
+    font-size: 1rem;
+  }
+  .button_for_img{
+    width: 4rem;
+    height: 2rem;
+    font-size: 75%;
+  }
+  .submit_button{
+    width: 35rem;
+  }
+
+}
+
